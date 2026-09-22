@@ -96,8 +96,8 @@ export default function PredictForm() {
           <div className="prob-bar-track">
             <div className="prob-bar-fill" style={{ width: `${(result.probability * 100).toFixed(1)}%` }} />
           </div>
-          <div className="muted" style={{ marginTop: 6 }}>
-            Model-estimated probability: {(result.probability * 100).toFixed(1)}%
+          <div className="prob-readout mono">
+            {(result.probability * 100).toFixed(1)}% modelled probability
           </div>
         </div>
       )}

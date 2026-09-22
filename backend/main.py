@@ -20,6 +20,7 @@ import pandas as pd
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from src.config import FEATURES, MODEL_DIR, RESULTS_DIR, FIG_DIR
@@ -124,3 +125,19 @@ def figure(name: str):
     if ".." in name or "/" in name or not path.exists():
         raise HTTPException(404, "Figure not found.")
     return FileResponse(path)
+
+
+# --- Serve the built React app (frontend/dist) so ONE server serves the API + the UI. ---
+# Build it once with:  cd frontend && npm run build
+# Then just run:        uvicorn backend.main:app --port 8000
+# and open http://localhost:8000  (no separate `npm run dev` / port 5173 needed).
+_dist = ROOT / "frontend" / "dist"
+if _dist.exists():
+    app.mount("/", StaticFiles(directory=str(_dist), html=True), name="frontend")
+else:
+    @app.get("/")
+    def _no_frontend_build():
+        return {
+            "detail": "Frontend not built yet. Run: cd frontend && npm install && npm run build, "
+                       "then restart this server.",
+        }

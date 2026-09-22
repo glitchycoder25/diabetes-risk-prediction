@@ -72,22 +72,23 @@ export default function Dashboard() {
           <h3 style={{ marginTop: 0 }}>Cross-validated ROC-AUC by model</h3>
           <ResponsiveContainer width="100%" height={Math.max(260, chartData.length * 34)}>
             <BarChart data={chartData} layout="vertical" margin={{ left: 20, right: 20 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#263148" horizontal={false} />
-              <XAxis type="number" domain={[0.5, 1]} stroke="#93a1bd" />
-              <YAxis type="category" dataKey="model" width={160} stroke="#93a1bd" fontSize={12} />
+              <CartesianGrid strokeDasharray="3 3" stroke="#dad5c8" horizontal={false} />
+              <XAxis type="number" domain={[0.5, 1]} stroke="#4d564f" fontSize={12} />
+              <YAxis type="category" dataKey="model" width={160} stroke="#4d564f" fontSize={12} fontFamily="IBM Plex Mono, monospace" />
               <Tooltip
-                contentStyle={{ background: "#161d2e", border: "1px solid #263148", color: "#e7ecf5" }}
+                contentStyle={{ background: "#ffffff", border: "1px solid #dad5c8", color: "#1b211f",
+                                fontFamily: "IBM Plex Mono, monospace", fontSize: 12 }}
                 formatter={(v) => v.toFixed(4)}
               />
               <Bar dataKey="auc" radius={[0, 6, 6, 0]}>
                 {chartData.map((d, i) => (
-                  <Cell key={i} fill={d.selected ? "#d1495b" : "#3e7cb1"} />
+                  <Cell key={i} fill={d.selected ? "#c1524b" : "#2a6f6f"} />
                 ))}
-                <ErrorBar dataKey="err" width={4} strokeWidth={1.5} stroke="#93a1bd" />
+                <ErrorBar dataKey="err" width={4} strokeWidth={1.5} stroke="#4d564f" />
               </Bar>
             </BarChart>
           </ResponsiveContainer>
-          <p className="muted">Red bar = model selected by the one-standard-error rule (see About).</p>
+          <p className="muted">Clay bar = model selected by the one-standard-error rule (see About).</p>
         </div>
       )}
 
@@ -98,8 +99,8 @@ export default function Dashboard() {
             <table>
               <thead>
                 <tr>
-                  <th>Model</th><th>Origin</th><th>CV AUC</th><th>Accuracy</th>
-                  <th>Precision</th><th>Recall</th><th>F1</th>
+                  <th>Model</th><th>Origin</th><th className="num">CV AUC</th><th className="num">Accuracy</th>
+                  <th className="num">Precision</th><th className="num">Recall</th><th className="num">F1</th>
                 </tr>
               </thead>
               <tbody>
@@ -107,11 +108,11 @@ export default function Dashboard() {
                   <tr key={r.model} className={r.selected ? "selected-row" : ""}>
                     <td>{r.model}</td>
                     <td>{r.origin}</td>
-                    <td>{Number(r.cv_auc_mean).toFixed(4)}</td>
-                    <td>{Number(r.accuracy).toFixed(3)}</td>
-                    <td>{Number(r.precision).toFixed(3)}</td>
-                    <td>{Number(r.recall).toFixed(3)}</td>
-                    <td>{Number(r.f1).toFixed(3)}</td>
+                    <td className="num">{Number(r.cv_auc_mean).toFixed(4)}</td>
+                    <td className="num">{Number(r.accuracy).toFixed(3)}</td>
+                    <td className="num">{Number(r.precision).toFixed(3)}</td>
+                    <td className="num">{Number(r.recall).toFixed(3)}</td>
+                    <td className="num">{Number(r.f1).toFixed(3)}</td>
                   </tr>
                 ))}
               </tbody>

@@ -1,0 +1,5 @@
+model,preprocessing,cv_auc_mean,cv_auc_std
+Logistic Regression,raw zeros kept,0.8334136212624585,0.03554143445311333
+Logistic Regression,zeros -> NaN -> median impute,0.8433637873754153,0.018549552071526722
+Random Forest,raw zeros kept,0.811000830564784,0.027705724058694
+Random Forest,zeros -> NaN -> median impute,0.8162569213732004,0.02231849195616748

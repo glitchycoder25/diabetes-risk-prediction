@@ -1,0 +1,83 @@
+{
+  "shape": [
+    768,
+    9
+  ],
+  "dtypes": {
+    "Pregnancies": "int64",
+    "Glucose": "int64",
+    "BloodPressure": "int64",
+    "SkinThickness": "int64",
+    "Insulin": "int64",
+    "BMI": "float64",
+    "DiabetesPedigreeFunction": "float64",
+    "Age": "int64",
+    "Outcome": "int64"
+  },
+  "non_numeric_columns": [],
+  "duplicate_rows": 0,
+  "explicit_missing": {
+    "Pregnancies": 0,
+    "Glucose": 0,
+    "BloodPressure": 0,
+    "SkinThickness": 0,
+    "Insulin": 0,
+    "BMI": 0,
+    "DiabetesPedigreeFunction": 0,
+    "Age": 0,
+    "Outcome": 0
+  },
+  "invalid_target_values": [],
+  "negative_values": {
+    "Pregnancies": 0,
+    "Glucose": 0,
+    "BloodPressure": 0,
+    "SkinThickness": 0,
+    "Insulin": 0,
+    "BMI": 0,
+    "DiabetesPedigreeFunction": 0,
+    "Age": 0
+  },
+  "hidden_zeros_as_missing": {
+    "Glucose": 5,
+    "BloodPressure": 35,
+    "SkinThickness": 227,
+    "Insulin": 374,
+    "BMI": 11
+  },
+  "hidden_zero_pct": {
+    "Glucose": 0.65,
+    "BloodPressure": 4.56,
+    "SkinThickness": 29.56,
+    "Insulin": 48.7,
+    "BMI": 1.43
+  },
+  "outside_plausible_range": {
+    "Pregnancies": 0,
+    "Glucose": 0,
+    "BloodPressure": 1,
+    "SkinThickness": 0,
+    "Insulin": 0,
+    "BMI": 0,
+    "DiabetesPedigreeFunction": 0,
+    "Age": 0
+  },
+  "iqr_outliers_reported_not_removed": {
+    "Pregnancies": 4,
+    "Glucose": 0,
+    "BloodPressure": 14,
+    "SkinThickness": 3,
+    "Insulin": 24,
+    "BMI": 8,
+    "DiabetesPedigreeFunction": 29,
+    "Age": 9
+  },
+  "class_counts": {
+    "0": 500,
+    "1": 268
+  },
+  "class_pct": {
+    "0": 65.1,
+    "1": 34.9
+  }
+}

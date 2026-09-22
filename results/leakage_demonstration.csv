@@ -1,0 +1,5 @@
+protocol,model,train_accuracy,test_accuracy,test_f1,test_roc_auc
+reference notebook (leaky),Random Forest (n=100),1.0,0.8636363636363636,0.8037383177570093,0.9446296296296297
+reference notebook (leaky),Gradient Boosting (notebook 'best'),1.0,0.8831168831168831,0.8301886792452831,0.9531481481481482
+this project (leak-free pipeline),Random Forest (n=100),1.0,0.7662337662337663,0.64,0.8210185185185185
+this project (leak-free pipeline),Gradient Boosting (notebook 'best'),1.0,0.7272727272727273,0.58,0.8066666666666668
